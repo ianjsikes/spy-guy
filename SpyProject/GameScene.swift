@@ -14,7 +14,7 @@ enum BodyType:UInt32 {
     
     case player = 1
     case ground = 2
-    case anotherBody1 = 4
+    case enemy = 4
     case anotherBody2 = 8
     case anotherBody3 = 16
     
@@ -67,6 +67,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             upAction: {})
         btnUp.position = CGPointMake(400, -200)
         
+        let btnReset = ButtonNode(defaultButtonImage: "btn_cancel_circle_dark",
+            activeButtonImage: "btn_cancel_circle_light",
+            downAction: { () in self.resetScene()},
+            upAction: {})
+        btnReset.position = CGPointMake(400, 300)
+        
         
         //End Button Stuff
         
@@ -76,8 +82,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cam.addChild(btnLeft)
         cam.addChild(btnRight)
         cam.addChild(btnUp)
+        cam.addChild(btnReset)
         
         self.scene!.camera = cam
+        
+        //Enemies
+        let badGuy1 = EnemyNode()
+        self.addChild(badGuy1)
+        badGuy1.position = CGPointMake(700, 900)
         
     }
     
@@ -104,11 +116,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             handler.didEndContact(contact.bodyA, contact: contact)
         }
     }
-    
-//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-//       /* Called when a touch begins */
-//        
-//    }
    
     override func update(currentTime: CFTimeInterval) {
         //The time in seconds since the last time this function was called.
@@ -117,5 +124,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /* Called before each frame is rendered */
         player.updateWithDeltaTime(deltaTime)
+    }
+    
+    func resetScene(){
+        
+        if let scene = GameScene(fileNamed:"GameScene") {
+            // Configure the view.
+            if let skView = self.scene?.view {
+                skView.showsFPS = true
+                skView.showsNodeCount = true
+                
+                /* Sprite Kit applies additional optimizations to improve rendering performance */
+                skView.ignoresSiblingOrder = true
+                
+                /* Set the scale mode to scale to fit the window */
+                scene.scaleMode = .AspectFill
+                
+                skView.presentScene(scene)
+            }
+        }
     }
 }

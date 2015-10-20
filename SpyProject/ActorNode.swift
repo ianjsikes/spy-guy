@@ -33,7 +33,10 @@ class ActorNode: SKNode, CollisionHandler {
         actorSprite = SKSpriteNode(texture: spriteSheet.getSprite(0, 0))
         
         //Initialize actor's physics body
-        actorBody = SKPhysicsBody(rectangleOfSize: CGSize(width: actorSprite.size.width/2.0, height: actorSprite.size.height/2.0))
+        //Just plugged in random values until something worked
+        //Going to be a nightmare to change when we change the actor's sprite
+        actorBody = SKPhysicsBody(rectangleOfSize: CGSize(width: 50, height: 75), center: CGPointMake(0.0, -25.0))
+        actorBody.mass = CGFloat(0.3)
         actorBody.allowsRotation = false
         
         //The actor and everything else need to have 'restitution' set to 0.0
@@ -43,14 +46,13 @@ class ActorNode: SKNode, CollisionHandler {
         
         //Sets the actor to trigger the "contactBegin" and "contactEnd" functions
         //When colliding with an object of the 'ground' type
-        actorBody.contactTestBitMask = BodyType.ground.rawValue
+        actorBody.contactTestBitMask = BodyType.ground.rawValue | BodyType.enemy.rawValue
         super.init()
         
         //Make the actor smaller
         self.setScale(CGFloat(0.5))
         
         self.physicsBody = actorBody;
-        //pBody.mass = CGFloat(1.0)
 
         //Instantiate the actor's state machine, using an array of all possible states
         actorStateMachine = GKStateMachine(states: [IdleState(actor: self),
@@ -80,9 +82,12 @@ class ActorNode: SKNode, CollisionHandler {
         
         switch(otherBody.categoryBitMask){
         case BodyType.ground.rawValue:
-            print("Touched the ground")
             if contact.contactNormal.dy > CGFloat(0.8) {
                 self.isGrounded = true
+            }
+        case BodyType.enemy.rawValue:
+            if let gameScene = self.scene as? GameScene {
+                gameScene.resetScene()
             }
         default:
             return
@@ -91,12 +96,12 @@ class ActorNode: SKNode, CollisionHandler {
     }
     func didEndContact(otherBody: SKPhysicsBody, contact: SKPhysicsContact) {
         
-        switch(otherBody.categoryBitMask){
-        case BodyType.ground.rawValue:
-            print("Left the ground")
-        default:
-            return
-        }
+//        switch(otherBody.categoryBitMask){
+//        case BodyType.ground.rawValue:
+//            print("Left the ground")
+//        default:
+//            return
+//        }
     }
     
     //Flips the orientation of the sprite if the actor turns around.

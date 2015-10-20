@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AD0904DD1BCACD7C00F21618 /* ActorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0904DC1BCACD7C00F21618 /* ActorNode.swift */; settings = {ASSET_TAGS = (); }; };
 		ADC8BD271BD5F8970041AB6E /* CollisionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8BD261BD5F8970041AB6E /* CollisionHandler.swift */; settings = {ASSET_TAGS = (); }; };
+		ADC8BD291BD609650041AB6E /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8BD281BD609650041AB6E /* EnemyNode.swift */; settings = {ASSET_TAGS = (); }; };
 		ADE974B41BCA3CDE00A69C10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974B31BCA3CDE00A69C10 /* AppDelegate.swift */; };
 		ADE974B61BCA3CDE00A69C10 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADE974B51BCA3CDE00A69C10 /* GameScene.sks */; };
 		ADE974B81BCA3CDE00A69C10 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974B71BCA3CDE00A69C10 /* GameScene.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		AD0904DC1BCACD7C00F21618 /* ActorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActorNode.swift; sourceTree = "<group>"; };
 		ADC8BD261BD5F8970041AB6E /* CollisionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionHandler.swift; sourceTree = "<group>"; };
+		ADC8BD281BD609650041AB6E /* EnemyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
 		ADE974B01BCA3CDE00A69C10 /* SpyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE974B31BCA3CDE00A69C10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADE974B51BCA3CDE00A69C10 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				ADE974CF1BCA41B700A69C10 /* ButtonNode.swift */,
 				AD0904DC1BCACD7C00F21618 /* ActorNode.swift */,
 				ADC8BD261BD5F8970041AB6E /* CollisionHandler.swift */,
+				ADC8BD281BD609650041AB6E /* EnemyNode.swift */,
 			);
 			path = SpyProject;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC8BD291BD609650041AB6E /* EnemyNode.swift in Sources */,
 				ADE974CA1BCA3D4900A69C10 /* SpriteSheet.swift in Sources */,
 				ADC8BD271BD5F8970041AB6E /* CollisionHandler.swift in Sources */,
 				ADE974CE1BCA403D00A69C10 /* RunningState.swift in Sources */,
