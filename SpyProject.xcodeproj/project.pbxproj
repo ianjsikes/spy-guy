@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD0904DD1BCACD7C00F21618 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0904DC1BCACD7C00F21618 /* PlayerNode.swift */; settings = {ASSET_TAGS = (); }; };
 		ADE974B41BCA3CDE00A69C10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974B31BCA3CDE00A69C10 /* AppDelegate.swift */; };
 		ADE974B61BCA3CDE00A69C10 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADE974B51BCA3CDE00A69C10 /* GameScene.sks */; };
 		ADE974B81BCA3CDE00A69C10 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974B71BCA3CDE00A69C10 /* GameScene.swift */; };
@@ -14,9 +15,14 @@
 		ADE974BD1BCA3CDE00A69C10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE974BB1BCA3CDE00A69C10 /* Main.storyboard */; };
 		ADE974BF1BCA3CDE00A69C10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADE974BE1BCA3CDE00A69C10 /* Assets.xcassets */; };
 		ADE974C21BCA3CDE00A69C10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADE974C01BCA3CDE00A69C10 /* LaunchScreen.storyboard */; };
+		ADE974CA1BCA3D4900A69C10 /* SpriteSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974C91BCA3D4900A69C10 /* SpriteSheet.swift */; settings = {ASSET_TAGS = (); }; };
+		ADE974CC1BCA3F4A00A69C10 /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974CB1BCA3F4A00A69C10 /* IdleState.swift */; settings = {ASSET_TAGS = (); }; };
+		ADE974CE1BCA403D00A69C10 /* RunningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974CD1BCA403D00A69C10 /* RunningState.swift */; settings = {ASSET_TAGS = (); }; };
+		ADE974D01BCA41B700A69C10 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974CF1BCA41B700A69C10 /* ButtonNode.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD0904DC1BCACD7C00F21618 /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
 		ADE974B01BCA3CDE00A69C10 /* SpyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE974B31BCA3CDE00A69C10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADE974B51BCA3CDE00A69C10 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -26,6 +32,10 @@
 		ADE974BE1BCA3CDE00A69C10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADE974C11BCA3CDE00A69C10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ADE974C31BCA3CDE00A69C10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADE974C91BCA3D4900A69C10 /* SpriteSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteSheet.swift; sourceTree = "<group>"; };
+		ADE974CB1BCA3F4A00A69C10 /* IdleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
+		ADE974CD1BCA403D00A69C10 /* RunningState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningState.swift; sourceTree = "<group>"; };
+		ADE974CF1BCA41B700A69C10 /* ButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,7 @@
 		ADE974B21BCA3CDE00A69C10 /* SpyProject */ = {
 			isa = PBXGroup;
 			children = (
+				ADE974C91BCA3D4900A69C10 /* SpriteSheet.swift */,
 				ADE974B31BCA3CDE00A69C10 /* AppDelegate.swift */,
 				ADE974B51BCA3CDE00A69C10 /* GameScene.sks */,
 				ADE974B71BCA3CDE00A69C10 /* GameScene.swift */,
@@ -66,6 +77,10 @@
 				ADE974BE1BCA3CDE00A69C10 /* Assets.xcassets */,
 				ADE974C01BCA3CDE00A69C10 /* LaunchScreen.storyboard */,
 				ADE974C31BCA3CDE00A69C10 /* Info.plist */,
+				ADE974CB1BCA3F4A00A69C10 /* IdleState.swift */,
+				ADE974CD1BCA403D00A69C10 /* RunningState.swift */,
+				ADE974CF1BCA41B700A69C10 /* ButtonNode.swift */,
+				AD0904DC1BCACD7C00F21618 /* PlayerNode.swift */,
 			);
 			path = SpyProject;
 			sourceTree = "<group>";
@@ -101,6 +116,7 @@
 				TargetAttributes = {
 					ADE974AF1BCA3CDE00A69C10 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = WBWC7QZAKP;
 					};
 				};
 			};
@@ -141,9 +157,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADE974CA1BCA3D4900A69C10 /* SpriteSheet.swift in Sources */,
+				ADE974CE1BCA403D00A69C10 /* RunningState.swift in Sources */,
 				ADE974B81BCA3CDE00A69C10 /* GameScene.swift in Sources */,
+				ADE974CC1BCA3F4A00A69C10 /* IdleState.swift in Sources */,
 				ADE974BA1BCA3CDE00A69C10 /* GameViewController.swift in Sources */,
 				ADE974B41BCA3CDE00A69C10 /* AppDelegate.swift in Sources */,
+				AD0904DD1BCACD7C00F21618 /* PlayerNode.swift in Sources */,
+				ADE974D01BCA41B700A69C10 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,10 +275,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpyProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = smc.cpc.SpyProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -265,10 +290,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpyProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = smc.cpc.SpyProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -291,6 +320,7 @@
 				ADE974C81BCA3CDE00A69C10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

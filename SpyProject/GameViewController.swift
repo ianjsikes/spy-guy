@@ -13,6 +13,9 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Why isn't this default? QQ
+        self.view.multipleTouchEnabled = true
 
         if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
