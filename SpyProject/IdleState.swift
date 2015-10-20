@@ -12,30 +12,30 @@ import SpriteKit
 
 
 class IdleState: GKState {
-    let player : PlayerNode
+    let actor : ActorNode
     let deccelerationFactor : CGFloat = 0.65
     
-    init(player: PlayerNode){
-        self.player = player
+    init(actor: ActorNode){
+        self.actor = actor
     }
     
     override func didEnterWithPreviousState(previousState: GKState?) {
-        if player.stateDebug {
+        if actor.stateDebug {
             print("Entering Idle State")
         }
         
     }
     
     override func willExitWithNextState(nextState: GKState) {
-        if player.stateDebug {
+        if actor.stateDebug {
             print("Exiting Idle State")
         }
         
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        //Slows the player down
-        player.pVelocity.dx *= deccelerationFactor
+        //Slows the actor down
+        actor.actorVelocity.dx *= deccelerationFactor
     }
     
 }

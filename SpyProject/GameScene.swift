@@ -23,7 +23,7 @@ enum BodyType:UInt32 {
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var timeAtLastUpdate : NSTimeInterval = 0
     var deltaTime : NSTimeInterval = 0.0
-    let player = PlayerNode()
+    let player = ActorNode()
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -49,16 +49,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let btnLeft = ButtonNode(defaultButtonImage: "btn_left_circle_dark",
                                  activeButtonImage: "btn_left_circle_light",
                                  downAction: { () in self.player.setFacingRight(false);
-                                                     self.player.pStateMachine.enterState(RunningState)},
-                                 upAction: { () in player.pStateMachine.enterState(IdleState)})
+                                                     self.player.actorStateMachine.enterState(RunningState)},
+                                 upAction: { () in player.actorStateMachine.enterState(IdleState)})
         btnLeft.position = CGPointMake(-400, -200)
         
         
         let btnRight = ButtonNode(defaultButtonImage: "btn_right_circle_dark",
                                   activeButtonImage: "btn_right_circle_light",
                                   downAction: { () in self.player.setFacingRight(true);
-                                                      self.player.pStateMachine.enterState(RunningState)},
-                                  upAction: { () in player.pStateMachine.enterState(IdleState)})
+                                                      self.player.actorStateMachine.enterState(RunningState)},
+                                  upAction: { () in player.actorStateMachine.enterState(IdleState)})
         btnRight.position = CGPointMake(-200, -200)
         
         let btnUp = ButtonNode(defaultButtonImage: "btn_up_circle_dark",
@@ -81,45 +81,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    ///TODO: Make some sort of "handles collision" interface for nodes
-    ///      and call method on the colliding nodes so they can handle their own collisions
-    ///      to clear as much code as possible out of this file.
+    //This gets called automatically when two objects begin contact with eachother
     func didBeginContact(contact: SKPhysicsContact) {
-        //this gets called automatically when two objects begin contact with eachother
-        
-        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        
-        switch(contactMask) {
-        case BodyType.player.rawValue | BodyType.ground.rawValue:
-            print("Touched the ground")
-            if contact.contactNormal.dy > CGFloat(0.8) {
-                self.player.isGrounded = true
-            }
-            
-            
-        default:
-            return
+        //If one of the bodies implements the CollisionHandler protocol,
+        //pass the contact event down to it.
+        if let handler = contact.bodyA.node! as? CollisionHandler {
+            handler.didBeginContact(contact.bodyB, contact: contact)
+        }
+        if let handler = contact.bodyB.node! as? CollisionHandler {
+            handler.didBeginContact(contact.bodyA, contact: contact)
         }
     }
     
+    //This gets called automatically when two objects end contact with eachother
     func didEndContact(contact: SKPhysicsContact) {
-        //this gets called automatically when two objects end contact with eachother
-        
-        let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-        
-        switch(contactMask) {
-        case BodyType.player.rawValue | BodyType.ground.rawValue:
-            print("Left the ground")
-            
-        default:
-            return
+        //If one of the bodies implements the CollisionHandler protocol,
+        //pass the contact event down to it.
+        if let handler = contact.bodyA.node! as? CollisionHandler {
+            handler.didEndContact(contact.bodyB, contact: contact)
+        }
+        if let handler = contact.bodyB.node! as? CollisionHandler {
+            handler.didEndContact(contact.bodyA, contact: contact)
         }
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
-        
-    }
+//    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+//       /* Called when a touch begins */
+//        
+//    }
    
     override func update(currentTime: CFTimeInterval) {
         //The time in seconds since the last time this function was called.

@@ -12,45 +12,45 @@ import SpriteKit
 
 
 class RunningState: GKState {
-    let player : PlayerNode
+    let actor : ActorNode
     let runningAnimation : [SKTexture]
     var speed : CGFloat = 0.2
     var maxSpeed : CGFloat = 5.0
     
-    init(player: PlayerNode, animation: [SKTexture]){
-        self.player = player
+    init(actor: ActorNode, animation: [SKTexture]){
+        self.actor = actor
         self.runningAnimation = animation
     }
     
     override func didEnterWithPreviousState(previousState: GKState?) {
-        if player.stateDebug {
+        if actor.stateDebug {
             print("Entering Running State")
         }
         
-        //Plays the running animation when the player starts to run
-        self.player.pSprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(runningAnimation,
+        //Plays the running animation when the actor starts to run
+        self.actor.actorSprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(runningAnimation,
                                                                                         timePerFrame: 0.08,
                                                                                         resize: false,
                                                                                         restore: true)))
     }
     
     override func willExitWithNextState(nextState: GKState) {
-        if player.stateDebug {
+        if actor.stateDebug {
             print("Exiting Running State")
         }
         
-        //Removes the running animation when the player stops running
-        self.player.pSprite.removeAllActions()
+        //Removes the running animation when the actor stops running
+        self.actor.actorSprite.removeAllActions()
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        //Adds to the player's velocity to make him move
-        if !player.isFacingRight {
-            player.pVelocity.dx -= speed
+        //Adds to the actor's velocity to make him move
+        if !actor.isFacingRight {
+            actor.actorVelocity.dx -= speed
         } else {
-            player.pVelocity.dx += speed
+            actor.actorVelocity.dx += speed
         }
-        player.pVelocity.dx = max(-maxSpeed, min(maxSpeed, player.pVelocity.dx))
+        actor.actorVelocity.dx = max(-maxSpeed, min(maxSpeed, actor.actorVelocity.dx))
         
     }
 }
