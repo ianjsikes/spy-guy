@@ -31,6 +31,7 @@ class ActorNode: SKNode, CollisionHandler {
     override init() {
         actorStateMachine = GKStateMachine(states: [])
         actorSprite = SKSpriteNode(texture: spriteSheet.getSprite(0, 0))
+        //actorSprite.shadowCastBitMask = 1
         
         //Initialize actor's physics body
         //Just plugged in random values until something worked

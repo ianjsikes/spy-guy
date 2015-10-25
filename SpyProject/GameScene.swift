@@ -41,7 +41,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bg.texture!.filteringMode = SKTextureFilteringMode.Nearest
         
         //Player Stuff
-        player.position = CGPointMake(self.size.width/2, self.size.height)
+        //player.position = CGPointMake(self.size.width/2, self.size.height)
+        if let playerSpawn = self.childNodeWithName("playerSpawn") {
+            player.position = playerSpawn.position
+        }
         
         
         //Button stuff
@@ -75,6 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         //End Button Stuff
+                
         
         self.addChild(bg)
         self.addChild(player)
@@ -127,7 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func resetScene(){
-        
+        self.scene?.removeAllChildren()
         if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
             if let skView = self.scene?.view {
