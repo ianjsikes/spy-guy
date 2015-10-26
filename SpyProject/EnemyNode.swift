@@ -48,6 +48,9 @@ class EnemyNode: ActorNode {
     
     /* Garbage */
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init()
+        actorSprite.texture = spriteSheet.getSprite(3, 2)
+        actorBody.categoryBitMask = BodyType.enemy.rawValue
+        actorBody.contactTestBitMask = BodyType.player.rawValue | BodyType.ground.rawValue
     }
 }

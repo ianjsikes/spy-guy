@@ -21,12 +21,12 @@ class ActorNode: SKNode, CollisionHandler {
     //Actor keeps track of it's own physics-independent velocity
     //Used for precise actor movement
     var actorVelocity : CGVector = CGVectorMake(0.0, 0.0)
-    var isGrounded : Bool = false
+    var isGrounded : Bool = true
     var isFacingRight : Bool = true
     
     //DEBUG SETTINGS
     //State machine will print all state changes to console
-    var stateDebug : Bool = false
+    var stateDebug : Bool = true
     
     override init() {
         actorStateMachine = GKStateMachine(states: [])
@@ -57,11 +57,16 @@ class ActorNode: SKNode, CollisionHandler {
 
         //Instantiate the actor's state machine, using an array of all possible states
         actorStateMachine = GKStateMachine(states: [IdleState(actor: self),
-                                                RunningState(actor: self,
-                                                             animation:[spriteSheet.getSprite(0, 6)!,
-                                                                        spriteSheet.getSprite(0, 5)!,
-                                                                        spriteSheet.getSprite(0, 7)!,
-                                                                        spriteSheet.getSprite(0, 4)!])])
+                                                    RunningState(actor: self,
+                                                                 animation:[spriteSheet.getSprite(0, 6)!,
+                                                                            spriteSheet.getSprite(0, 5)!,
+                                                                            spriteSheet.getSprite(0, 7)!,
+                                                                            spriteSheet.getSprite(0, 4)!]),
+                                                    JumpingState(actor: self,
+                                                                 animation:[spriteSheet.getSprite(0, 6)!,
+                                                                            spriteSheet.getSprite(0, 5)!,
+                                                                            spriteSheet.getSprite(0, 7)!,
+                                                                            spriteSheet.getSprite(0, 4)!])])
         actorStateMachine.enterState(IdleState)
         
         
@@ -84,7 +89,10 @@ class ActorNode: SKNode, CollisionHandler {
         switch(otherBody.categoryBitMask){
         case BodyType.ground.rawValue:
             if contact.contactNormal.dy > CGFloat(0.8) {
+//                actorStateMachine.enterState(IdleState)
                 self.isGrounded = true
+            }else if abs(contact.contactNormal.dx) > CGFloat(0.8) {
+                print("Touching a wall")
             }
         case BodyType.enemy.rawValue:
             if let gameScene = self.scene as? GameScene {
@@ -117,6 +125,7 @@ class ActorNode: SKNode, CollisionHandler {
     func jump() {
         if isGrounded {
             //print("Jumping")
+//            actorStateMachine.enterState(JumpingState)
             actorBody.applyImpulse(CGVector(dx: 0.0, dy: 200.0))
             isGrounded = false
         }
@@ -124,7 +133,8 @@ class ActorNode: SKNode, CollisionHandler {
 
     
     //Stupid required initializer, please ignore
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required convenience init?(coder aDecoder: NSCoder) {
+        
+        self.init()
     }
 }

@@ -23,7 +23,7 @@ enum BodyType:UInt32 {
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var timeAtLastUpdate : NSTimeInterval = 0
     var deltaTime : NSTimeInterval = 0.0
-    let player = ActorNode()
+    let player = PlayerNode()
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
