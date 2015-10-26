@@ -10,6 +10,9 @@
 		AD0904DD1BCACD7C00F21618 /* ActorNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0904DC1BCACD7C00F21618 /* ActorNode.swift */; settings = {ASSET_TAGS = (); }; };
 		AD7A32FA1BDDCE1300C75793 /* JumpingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A32F91BDDCE1300C75793 /* JumpingState.swift */; settings = {ASSET_TAGS = (); }; };
 		AD7A32FC1BDDDBF700C75793 /* PlayerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A32FB1BDDDBF700C75793 /* PlayerNode.swift */; settings = {ASSET_TAGS = (); }; };
+		AD7A32FE1BDDDE5900C75793 /* Gadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A32FD1BDDDE5900C75793 /* Gadget.swift */; settings = {ASSET_TAGS = (); }; };
+		AD7A33001BDDDF7700C75793 /* LaserGadget.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A32FF1BDDDF7700C75793 /* LaserGadget.swift */; settings = {ASSET_TAGS = (); }; };
+		AD7A33021BDDEBCE00C75793 /* LaserBlast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A33011BDDEBCE00C75793 /* LaserBlast.swift */; settings = {ASSET_TAGS = (); }; };
 		ADC8BD271BD5F8970041AB6E /* CollisionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8BD261BD5F8970041AB6E /* CollisionHandler.swift */; settings = {ASSET_TAGS = (); }; };
 		ADC8BD291BD609650041AB6E /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8BD281BD609650041AB6E /* EnemyNode.swift */; settings = {ASSET_TAGS = (); }; };
 		ADE974B41BCA3CDE00A69C10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974B31BCA3CDE00A69C10 /* AppDelegate.swift */; };
@@ -29,6 +32,9 @@
 		AD0904DC1BCACD7C00F21618 /* ActorNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActorNode.swift; sourceTree = "<group>"; };
 		AD7A32F91BDDCE1300C75793 /* JumpingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpingState.swift; sourceTree = "<group>"; };
 		AD7A32FB1BDDDBF700C75793 /* PlayerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerNode.swift; sourceTree = "<group>"; };
+		AD7A32FD1BDDDE5900C75793 /* Gadget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gadget.swift; sourceTree = "<group>"; };
+		AD7A32FF1BDDDF7700C75793 /* LaserGadget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaserGadget.swift; sourceTree = "<group>"; };
+		AD7A33011BDDEBCE00C75793 /* LaserBlast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaserBlast.swift; sourceTree = "<group>"; };
 		ADC8BD261BD5F8970041AB6E /* CollisionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionHandler.swift; sourceTree = "<group>"; };
 		ADC8BD281BD609650041AB6E /* EnemyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
 		ADE974B01BCA3CDE00A69C10 /* SpyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +99,9 @@
 				ADC8BD261BD5F8970041AB6E /* CollisionHandler.swift */,
 				ADC8BD281BD609650041AB6E /* EnemyNode.swift */,
 				AD7A32F91BDDCE1300C75793 /* JumpingState.swift */,
+				AD7A32FD1BDDDE5900C75793 /* Gadget.swift */,
+				AD7A32FF1BDDDF7700C75793 /* LaserGadget.swift */,
+				AD7A33011BDDEBCE00C75793 /* LaserBlast.swift */,
 			);
 			path = SpyProject;
 			sourceTree = "<group>";
@@ -170,13 +179,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADC8BD291BD609650041AB6E /* EnemyNode.swift in Sources */,
+				AD7A33001BDDDF7700C75793 /* LaserGadget.swift in Sources */,
 				ADE974CA1BCA3D4900A69C10 /* SpriteSheet.swift in Sources */,
+				AD7A33021BDDEBCE00C75793 /* LaserBlast.swift in Sources */,
 				AD7A32FC1BDDDBF700C75793 /* PlayerNode.swift in Sources */,
 				ADC8BD271BD5F8970041AB6E /* CollisionHandler.swift in Sources */,
 				AD7A32FA1BDDCE1300C75793 /* JumpingState.swift in Sources */,
 				ADE974CE1BCA403D00A69C10 /* RunningState.swift in Sources */,
 				ADE974B81BCA3CDE00A69C10 /* GameScene.swift in Sources */,
 				ADE974CC1BCA3F4A00A69C10 /* IdleState.swift in Sources */,
+				AD7A32FE1BDDDE5900C75793 /* Gadget.swift in Sources */,
 				ADE974BA1BCA3CDE00A69C10 /* GameViewController.swift in Sources */,
 				ADE974B41BCA3CDE00A69C10 /* AppDelegate.swift in Sources */,
 				AD0904DD1BCACD7C00F21618 /* ActorNode.swift in Sources */,

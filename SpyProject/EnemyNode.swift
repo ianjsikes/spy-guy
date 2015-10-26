@@ -27,6 +27,9 @@ class EnemyNode: ActorNode {
             if contact.contactNormal.dy > CGFloat(0.8) {
                 self.isGrounded = true
             }
+        case BodyType.laser.rawValue:
+            otherBody.node?.runAction(SKAction.removeFromParent())
+            self.runAction(SKAction.removeFromParent())
         default:
             return
         }

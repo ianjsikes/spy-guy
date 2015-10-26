@@ -26,7 +26,7 @@ class ActorNode: SKNode, CollisionHandler {
     
     //DEBUG SETTINGS
     //State machine will print all state changes to console
-    var stateDebug : Bool = true
+    var stateDebug : Bool = false
     
     override init() {
         actorStateMachine = GKStateMachine(states: [])
@@ -47,7 +47,7 @@ class ActorNode: SKNode, CollisionHandler {
         
         //Sets the actor to trigger the "contactBegin" and "contactEnd" functions
         //When colliding with an object of the 'ground' type
-        actorBody.contactTestBitMask = BodyType.ground.rawValue | BodyType.enemy.rawValue
+        actorBody.contactTestBitMask = BodyType.ground.rawValue | BodyType.enemy.rawValue | BodyType.laser.rawValue
         super.init()
         
         //Make the actor smaller

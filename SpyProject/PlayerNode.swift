@@ -11,5 +11,16 @@ import GameplayKit
 import SpriteKit
 
 class PlayerNode: ActorNode {
+    var gadgets : [GadgetType:Gadget] = [:]
+    var currentGadget : Gadget? = nil
     
+    override init() {
+        super.init()
+        gadgets = [GadgetType.Laser : LaserGadget(player: self)]
+        currentGadget = gadgets[GadgetType.Laser]!
+    }
+    
+    func useGadget() {
+        currentGadget!.activate()
+    }
 }

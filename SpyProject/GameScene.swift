@@ -15,7 +15,7 @@ enum BodyType:UInt32 {
     case player = 1
     case ground = 2
     case enemy = 4
-    case anotherBody2 = 8
+    case laser = 8
     case anotherBody3 = 16
     
 }
@@ -27,6 +27,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        
+        
         physicsWorld.contactDelegate = self
         
         //Camera Stuff
@@ -76,6 +79,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             upAction: {})
         btnReset.position = CGPointMake(400, 300)
         
+        let btnGadget = ButtonNode(defaultButtonTexture: (player.currentGadget?.icon)!, activeButtonTexture: (player.currentGadget?.icon)!, downAction: { () in self.player.useGadget() }, upAction: {} )
+        btnGadget.position = CGPointMake(400, 0)
+        btnGadget.setScale(CGFloat(2.0))
+        btnGadget.zPosition = 5.0
+        
         
         //End Button Stuff
                 
@@ -87,6 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cam.addChild(btnRight)
         cam.addChild(btnUp)
         cam.addChild(btnReset)
+        cam.addChild(btnGadget)
         
         self.scene!.camera = cam
         
@@ -148,4 +157,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
 }
