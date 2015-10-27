@@ -28,7 +28,6 @@ class EnemyNode: ActorNode {
                 self.isGrounded = true
             }
         case BodyType.laser.rawValue:
-            otherBody.node?.runAction(SKAction.removeFromParent())
             self.runAction(SKAction.removeFromParent())
         default:
             return

@@ -20,18 +20,11 @@ class LaserGadget: Gadget {
     }
     
     func activate() {
-        print("pew")
-        let tex = SKTexture(imageNamed: "laser-blast")
-        let laser = SKSpriteNode(texture: tex)
-        laser.position = player.position
-        let laserBody = SKPhysicsBody(rectangleOfSize: tex.size())
-        laserBody.affectedByGravity = false
-        laserBody.allowsRotation = false
-        laserBody.categoryBitMask = BodyType.laser.rawValue
-        laserBody.contactTestBitMask = BodyType.enemy.rawValue
-        
-        laser.physicsBody = laserBody
+        let lDir = player.isFacingRight ? LaserBlast.Direction.Right : LaserBlast.Direction.Left;
+        let lPos = CGPoint(x: player.position.x + CGFloat(lDir.rawValue * 40), y: player.position.y - CGFloat(25))
+        let laser = LaserBlast(dir: lDir,
+                               velocity: CGFloat(100.0),
+                               pos: lPos)
         player.parent!.addChild(laser)
-        laser.runAction(SKAction.repeatActionForever(SKAction.moveByX(CGFloat(100.0), y: CGFloat(0.0), duration: 0.1)))
     }
 }
