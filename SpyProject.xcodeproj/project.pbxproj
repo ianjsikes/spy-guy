@@ -26,6 +26,8 @@
 		ADE974CC1BCA3F4A00A69C10 /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974CB1BCA3F4A00A69C10 /* IdleState.swift */; settings = {ASSET_TAGS = (); }; };
 		ADE974CE1BCA403D00A69C10 /* RunningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974CD1BCA403D00A69C10 /* RunningState.swift */; settings = {ASSET_TAGS = (); }; };
 		ADE974D01BCA41B700A69C10 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974CF1BCA41B700A69C10 /* ButtonNode.swift */; settings = {ASSET_TAGS = (); }; };
+		ADFDD16C1BDF547E00BE8F4D /* JSTileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFDD16B1BDF547E00BE8F4D /* JSTileMap.m */; settings = {ASSET_TAGS = (); }; };
+		ADFDD16F1BDF548F00BE8F4D /* LFCGzipUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFDD16E1BDF548F00BE8F4D /* LFCGzipUtility.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,11 @@
 		ADE974CB1BCA3F4A00A69C10 /* IdleState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
 		ADE974CD1BCA403D00A69C10 /* RunningState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningState.swift; sourceTree = "<group>"; };
 		ADE974CF1BCA41B700A69C10 /* ButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
+		ADFDD1691BDF547E00BE8F4D /* SpyProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpyProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		ADFDD16A1BDF547E00BE8F4D /* JSTileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSTileMap.h; sourceTree = "<group>"; };
+		ADFDD16B1BDF547E00BE8F4D /* JSTileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSTileMap.m; sourceTree = "<group>"; };
+		ADFDD16D1BDF548F00BE8F4D /* LFCGzipUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFCGzipUtility.h; sourceTree = "<group>"; };
+		ADFDD16E1BDF548F00BE8F4D /* LFCGzipUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFCGzipUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +89,10 @@
 		ADE974B21BCA3CDE00A69C10 /* SpyProject */ = {
 			isa = PBXGroup;
 			children = (
+				ADFDD16D1BDF548F00BE8F4D /* LFCGzipUtility.h */,
+				ADFDD16E1BDF548F00BE8F4D /* LFCGzipUtility.m */,
+				ADFDD16A1BDF547E00BE8F4D /* JSTileMap.h */,
+				ADFDD16B1BDF547E00BE8F4D /* JSTileMap.m */,
 				ADE974C91BCA3D4900A69C10 /* SpriteSheet.swift */,
 				ADE974B31BCA3CDE00A69C10 /* AppDelegate.swift */,
 				ADE974B51BCA3CDE00A69C10 /* GameScene.sks */,
@@ -102,6 +113,7 @@
 				AD7A32FD1BDDDE5900C75793 /* Gadget.swift */,
 				AD7A32FF1BDDDF7700C75793 /* LaserGadget.swift */,
 				AD7A33011BDDEBCE00C75793 /* LaserBlast.swift */,
+				ADFDD1691BDF547E00BE8F4D /* SpyProject-Bridging-Header.h */,
 			);
 			path = SpyProject;
 			sourceTree = "<group>";
@@ -132,6 +144,7 @@
 		ADE974A81BCA3CDE00A69C10 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = SMC_CPC;
 				TargetAttributes = {
@@ -188,11 +201,13 @@
 				ADE974CE1BCA403D00A69C10 /* RunningState.swift in Sources */,
 				ADE974B81BCA3CDE00A69C10 /* GameScene.swift in Sources */,
 				ADE974CC1BCA3F4A00A69C10 /* IdleState.swift in Sources */,
+				ADFDD16F1BDF548F00BE8F4D /* LFCGzipUtility.m in Sources */,
 				AD7A32FE1BDDDE5900C75793 /* Gadget.swift in Sources */,
 				ADE974BA1BCA3CDE00A69C10 /* GameViewController.swift in Sources */,
 				ADE974B41BCA3CDE00A69C10 /* AppDelegate.swift in Sources */,
 				AD0904DD1BCACD7C00F21618 /* ActorNode.swift in Sources */,
 				ADE974D01BCA41B700A69C10 /* ButtonNode.swift in Sources */,
+				ADFDD16C1BDF547E00BE8F4D /* JSTileMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpyProject/Info.plist;
@@ -311,6 +327,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = smc.cpc.SpyProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpyProject/SpyProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -318,6 +336,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SpyProject/Info.plist;
@@ -326,6 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = smc.cpc.SpyProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpyProject/SpyProject-Bridging-Header.h";
 			};
 			name = Release;
 		};
