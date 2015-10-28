@@ -16,6 +16,7 @@ class AlertedState: GKState {
     let alertedIcon : SKSpriteNode
     
     init(actor: EnemyNode){
+        
         self.actor = actor
         alertedIcon = SKSpriteNode(imageNamed: "alerted-icon")
     }
