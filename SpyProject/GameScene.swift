@@ -36,6 +36,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let cam = SKCameraNode()
         cam.setScale(CGFloat(2.0))
         
+        self.scene!.camera = cam
+        
         //Background Stuff
         let bg = SKSpriteNode(imageNamed: "city")
         bg.position = CGPointMake(2295.274, 149.994)
@@ -49,15 +51,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player.position = playerSpawn.position
         }
         
-        
         //Button stuff
+        
         
         let btnLeft = ButtonNode(defaultButtonImage: "btn_left_circle_dark",
                                  activeButtonImage: "btn_left_circle_light",
                                  downAction: { () in self.player.setFacingRight(false);
                                                      self.player.actorStateMachine.enterState(RunningState)},
                                  upAction: { () in player.actorStateMachine.enterState(IdleState)})
-        btnLeft.position = CGPointMake(-400, -200)
+        btnLeft.position = scaledScreenPosition(x: 0.1, y: 0.1)
         
         
         let btnRight = ButtonNode(defaultButtonImage: "btn_right_circle_dark",
@@ -65,22 +67,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                   downAction: { () in self.player.setFacingRight(true);
                                                       self.player.actorStateMachine.enterState(RunningState)},
                                   upAction: { () in player.actorStateMachine.enterState(IdleState)})
-        btnRight.position = CGPointMake(-200, -200)
+        btnRight.position = scaledScreenPosition(x: 0.25, y: 0.1)
         
         let btnUp = ButtonNode(defaultButtonImage: "btn_up_circle_dark",
             activeButtonImage: "btn_up_circle_light",
             downAction: { () in self.player.jump()},
             upAction: {})
-        btnUp.position = CGPointMake(400, -200)
+        btnUp.position = scaledScreenPosition(x: 0.9, y: 0.1)
         
         let btnReset = ButtonNode(defaultButtonImage: "btn_cancel_circle_dark",
             activeButtonImage: "btn_cancel_circle_light",
             downAction: { () in self.resetScene()},
             upAction: {})
-        btnReset.position = CGPointMake(400, 300)
+        btnReset.position = scaledScreenPosition(x: 0.9, y: 0.9)
         
         let btnGadget = ButtonNode(defaultButtonTexture: (player.currentGadget?.icon)!, activeButtonTexture: (player.currentGadget?.icon)!, downAction: { () in self.player.useGadget() }, upAction: {} )
-        btnGadget.position = CGPointMake(400, 0)
+        btnGadget.position = scaledScreenPosition(x: 0.9, y: 0.3)
         btnGadget.setScale(CGFloat(2.0))
         btnGadget.zPosition = 5.0
         
@@ -97,13 +99,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         cam.addChild(btnReset)
         cam.addChild(btnGadget)
         
-        self.scene!.camera = cam
+        
         
         //Enemies
         let badGuy1 = EnemyNode()
         self.addChild(badGuy1)
         badGuy1.position = CGPointMake(700, 900)
         
+    }
+    
+    func scaledScreenPosition(x x : CGFloat, y : CGFloat) -> CGPoint {
+        let scaledX = (x * self.frame.width) - (self.frame.midX)
+        let scaledY = (y * self.frame.height) - (self.frame.midY)
+        
+        return CGPointMake(scaledX, scaledY)
     }
     
     //This gets called automatically when two objects begin contact with eachother

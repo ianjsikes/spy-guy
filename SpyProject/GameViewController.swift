@@ -16,10 +16,20 @@ class GameViewController: UIViewController {
         
         //Why isn't this default? QQ
         self.view.multipleTouchEnabled = true
+        
+        let sizeRect = UIScreen.mainScreen().bounds
+        let width = sizeRect.size.width * UIScreen.mainScreen().scale
+        let height = sizeRect.size.height * UIScreen.mainScreen().scale
 
         if let scene = GameScene(fileNamed:"GameScene") {
+            //scene.anchorPoint = CGPointMake(0.0, 0.0)
+            
             // Configure the view.
             let skView = self.view as! SKView
+            
+            //Set the scene's size to the size of the device
+            scene.size = CGSizeMake(width, height)
+            
             skView.showsFPS = true
             skView.showsNodeCount = true
             
@@ -30,7 +40,7 @@ class GameViewController: UIViewController {
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .AspectFit
             
             skView.presentScene(scene)
         }
