@@ -1,8 +1,8 @@
 //
-//  IdleState.swift
+//  PatrollingState.swift
 //  SpyProject
 //
-//  Created by Avelina Kim on 10/10/15.
+//  Created by Avelina Kim on 10/27/15.
 //  Copyright © 2015 SMC_CPC. All rights reserved.
 //
 
@@ -11,11 +11,10 @@ import GameplayKit
 import SpriteKit
 
 
-class IdleState: GKState {
-    let actor : ActorNode
-    let deccelerationFactor : CGFloat = 0.65
+class PatrollingState: GKState {
+    let actor : EnemyNode
     
-    init(actor: ActorNode){
+    init(actor: EnemyNode){
         self.actor = actor
     }
     
@@ -30,12 +29,15 @@ class IdleState: GKState {
         if actor.stateDebug {
             print("Exiting \(self.dynamicType)")
         }
-        
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        //Slows the actor down
-        actor.actorVelocity.dx *= deccelerationFactor
+        
+        if actor.isFacingTarget() {
+            if actor.isTargetInSight() {
+                self.stateMachine?.enterState(AlertedState)
+            }
+        }
     }
     
 }

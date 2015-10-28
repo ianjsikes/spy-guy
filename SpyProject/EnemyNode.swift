@@ -12,11 +12,25 @@ import GameplayKit
 
 class EnemyNode: ActorNode {
     
-    override init() {
+    var target : ActorNode? = nil
+    var aiStateMachine : GKStateMachine = GKStateMachine(states: [])
+    
+    
+    init(target : ActorNode?) {
         super.init()
         actorSprite.texture = spriteSheet.getSprite(3, 2)
         actorBody.categoryBitMask = BodyType.enemy.rawValue
         actorBody.contactTestBitMask = BodyType.player.rawValue | BodyType.ground.rawValue
+        
+        aiStateMachine = GKStateMachine(states: [PatrollingState(actor: self), AlertedState(actor: self)])
+        aiStateMachine.enterState(PatrollingState)
+        self.target = target
+    }
+    
+    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+        super.updateWithDeltaTime(seconds)
+        aiStateMachine.updateWithDeltaTime(seconds)
+        
     }
     
     override func didBeginContact(otherBody: SKPhysicsBody, contact: SKPhysicsContact) {
@@ -44,7 +58,29 @@ class EnemyNode: ActorNode {
         }
     }
     
+    func isFacingTarget() -> Bool {
+        if let targetX = target?.position.x {
+            let myX = self.position.x
+            
+            if self.isFacingRight {
+                return myX < targetX
+            }else {
+                return myX > targetX
+            }
+        }
+        
+        return false
+    }
     
+    func isTargetInSight() -> Bool {
+        if let body = self.scene?.physicsWorld.bodyAlongRayStart(self.position, end: (target?.position)!) {
+            if let node = body.node as? ActorNode {
+                return node === target!
+            }
+        }
+        
+        return false
+    }
     
     
     

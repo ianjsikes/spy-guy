@@ -25,7 +25,7 @@ class JumpingState: GKState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
         if actor.stateDebug {
-            print("Entering Jumping State")
+            print("Entering \(self.dynamicType)")
         }
         
         actor.actorBody.applyImpulse(CGVector(dx: 0.0, dy: 200.0))
@@ -40,7 +40,7 @@ class JumpingState: GKState {
     
     override func willExitWithNextState(nextState: GKState) {
         if actor.stateDebug {
-            print("Exiting Jumping State")
+            print("Exiting \(self.dynamicType)")
         }
         
         actor.isGrounded = true

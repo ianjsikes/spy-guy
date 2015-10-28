@@ -25,10 +25,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var deltaTime : NSTimeInterval = 0.0
     let player = PlayerNode()
     
+    let badGuy1 : EnemyNode = EnemyNode(target: nil)
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        
+        badGuy1.target = player
         
         physicsWorld.contactDelegate = self
         
@@ -88,7 +90,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         //End Button Stuff
-                
         
         self.addChild(bg)
         self.addChild(player)
@@ -102,7 +103,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         //Enemies
-        let badGuy1 = EnemyNode()
+        
         self.addChild(badGuy1)
         badGuy1.position = CGPointMake(700, 900)
         
@@ -146,6 +147,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         /* Called before each frame is rendered */
         player.updateWithDeltaTime(deltaTime)
+        badGuy1.updateWithDeltaTime(deltaTime)
     }
     
     func resetScene(){

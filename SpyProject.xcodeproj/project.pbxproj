@@ -15,6 +15,11 @@
 		AD7A33021BDDEBCE00C75793 /* LaserBlast.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7A33011BDDEBCE00C75793 /* LaserBlast.swift */; settings = {ASSET_TAGS = (); }; };
 		ADC8BD271BD5F8970041AB6E /* CollisionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8BD261BD5F8970041AB6E /* CollisionHandler.swift */; settings = {ASSET_TAGS = (); }; };
 		ADC8BD291BD609650041AB6E /* EnemyNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC8BD281BD609650041AB6E /* EnemyNode.swift */; settings = {ASSET_TAGS = (); }; };
+		ADE92FAC1BE06F9200BDBA24 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE92FA91BE06F9200BDBA24 /* Events.swift */; settings = {ASSET_TAGS = (); }; };
+		ADE92FAD1BE06F9200BDBA24 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = ADE92FAA1BE06F9200BDBA24 /* LICENSE */; settings = {ASSET_TAGS = (); }; };
+		ADE92FAE1BE06F9200BDBA24 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = ADE92FAB1BE06F9200BDBA24 /* README.md */; settings = {ASSET_TAGS = (); }; };
+		ADE92FB21BE0824D00BDBA24 /* AlertedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE92FB11BE0824D00BDBA24 /* AlertedState.swift */; settings = {ASSET_TAGS = (); }; };
+		ADE92FB41BE0842800BDBA24 /* PatrollingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE92FB31BE0842800BDBA24 /* PatrollingState.swift */; settings = {ASSET_TAGS = (); }; };
 		ADE974B41BCA3CDE00A69C10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974B31BCA3CDE00A69C10 /* AppDelegate.swift */; };
 		ADE974B61BCA3CDE00A69C10 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADE974B51BCA3CDE00A69C10 /* GameScene.sks */; };
 		ADE974B81BCA3CDE00A69C10 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE974B71BCA3CDE00A69C10 /* GameScene.swift */; };
@@ -38,6 +43,11 @@
 		ADBA1F9D1BDFF6A4008A6AA7 /* SpyProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpyProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		ADC8BD261BD5F8970041AB6E /* CollisionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionHandler.swift; sourceTree = "<group>"; };
 		ADC8BD281BD609650041AB6E /* EnemyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
+		ADE92FA91BE06F9200BDBA24 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		ADE92FAA1BE06F9200BDBA24 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		ADE92FAB1BE06F9200BDBA24 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		ADE92FB11BE0824D00BDBA24 /* AlertedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertedState.swift; sourceTree = "<group>"; };
+		ADE92FB31BE0842800BDBA24 /* PatrollingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatrollingState.swift; sourceTree = "<group>"; };
 		ADE974B01BCA3CDE00A69C10 /* SpyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADE974B31BCA3CDE00A69C10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADE974B51BCA3CDE00A69C10 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -64,6 +74,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADE92FA81BE06F9200BDBA24 /* Custom-Events */ = {
+			isa = PBXGroup;
+			children = (
+				ADE92FA91BE06F9200BDBA24 /* Events.swift */,
+				ADE92FAA1BE06F9200BDBA24 /* LICENSE */,
+				ADE92FAB1BE06F9200BDBA24 /* README.md */,
+			);
+			path = "Custom-Events";
+			sourceTree = "<group>";
+		};
+		ADE92FAF1BE081A100BDBA24 /* Movement States */ = {
+			isa = PBXGroup;
+			children = (
+				ADE974CB1BCA3F4A00A69C10 /* IdleState.swift */,
+				ADE974CD1BCA403D00A69C10 /* RunningState.swift */,
+				AD7A32F91BDDCE1300C75793 /* JumpingState.swift */,
+			);
+			name = "Movement States";
+			sourceTree = "<group>";
+		};
+		ADE92FB01BE0821900BDBA24 /* AIStates */ = {
+			isa = PBXGroup;
+			children = (
+				ADE92FB11BE0824D00BDBA24 /* AlertedState.swift */,
+				ADE92FB31BE0842800BDBA24 /* PatrollingState.swift */,
+			);
+			name = AIStates;
+			sourceTree = "<group>";
+		};
 		ADE974A71BCA3CDE00A69C10 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +122,9 @@
 		ADE974B21BCA3CDE00A69C10 /* SpyProject */ = {
 			isa = PBXGroup;
 			children = (
+				ADE92FB01BE0821900BDBA24 /* AIStates */,
+				ADE92FAF1BE081A100BDBA24 /* Movement States */,
+				ADE92FA81BE06F9200BDBA24 /* Custom-Events */,
 				ADE974C91BCA3D4900A69C10 /* SpriteSheet.swift */,
 				ADE974B31BCA3CDE00A69C10 /* AppDelegate.swift */,
 				ADE974B51BCA3CDE00A69C10 /* GameScene.sks */,
@@ -92,14 +134,11 @@
 				ADE974BE1BCA3CDE00A69C10 /* Assets.xcassets */,
 				ADE974C01BCA3CDE00A69C10 /* LaunchScreen.storyboard */,
 				ADE974C31BCA3CDE00A69C10 /* Info.plist */,
-				ADE974CB1BCA3F4A00A69C10 /* IdleState.swift */,
-				ADE974CD1BCA403D00A69C10 /* RunningState.swift */,
 				ADE974CF1BCA41B700A69C10 /* ButtonNode.swift */,
 				AD0904DC1BCACD7C00F21618 /* ActorNode.swift */,
 				AD7A32FB1BDDDBF700C75793 /* PlayerNode.swift */,
 				ADC8BD261BD5F8970041AB6E /* CollisionHandler.swift */,
 				ADC8BD281BD609650041AB6E /* EnemyNode.swift */,
-				AD7A32F91BDDCE1300C75793 /* JumpingState.swift */,
 				AD7A32FD1BDDDE5900C75793 /* Gadget.swift */,
 				AD7A32FF1BDDDF7700C75793 /* LaserGadget.swift */,
 				AD7A33011BDDEBCE00C75793 /* LaserBlast.swift */,
@@ -171,6 +210,7 @@
 				ADE974C21BCA3CDE00A69C10 /* LaunchScreen.storyboard in Resources */,
 				ADE974BF1BCA3CDE00A69C10 /* Assets.xcassets in Resources */,
 				ADE974BD1BCA3CDE00A69C10 /* Main.storyboard in Resources */,
+				ADE92FAD1BE06F9200BDBA24 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +224,7 @@
 				ADC8BD291BD609650041AB6E /* EnemyNode.swift in Sources */,
 				AD7A33001BDDDF7700C75793 /* LaserGadget.swift in Sources */,
 				ADE974CA1BCA3D4900A69C10 /* SpriteSheet.swift in Sources */,
+				ADE92FB41BE0842800BDBA24 /* PatrollingState.swift in Sources */,
 				AD7A33021BDDEBCE00C75793 /* LaserBlast.swift in Sources */,
 				AD7A32FC1BDDDBF700C75793 /* PlayerNode.swift in Sources */,
 				ADC8BD271BD5F8970041AB6E /* CollisionHandler.swift in Sources */,
@@ -192,10 +233,13 @@
 				ADE974B81BCA3CDE00A69C10 /* GameScene.swift in Sources */,
 				ADE974CC1BCA3F4A00A69C10 /* IdleState.swift in Sources */,
 				AD7A32FE1BDDDE5900C75793 /* Gadget.swift in Sources */,
+				ADE92FAE1BE06F9200BDBA24 /* README.md in Sources */,
 				ADE974BA1BCA3CDE00A69C10 /* GameViewController.swift in Sources */,
+				ADE92FAC1BE06F9200BDBA24 /* Events.swift in Sources */,
 				ADE974B41BCA3CDE00A69C10 /* AppDelegate.swift in Sources */,
 				AD0904DD1BCACD7C00F21618 /* ActorNode.swift in Sources */,
 				ADE974D01BCA41B700A69C10 /* ButtonNode.swift in Sources */,
+				ADE92FB21BE0824D00BDBA24 /* AlertedState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

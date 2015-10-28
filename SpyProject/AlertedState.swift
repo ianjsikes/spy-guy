@@ -1,8 +1,8 @@
 //
-//  IdleState.swift
+//  AlertedState.swift
 //  SpyProject
 //
-//  Created by Avelina Kim on 10/10/15.
+//  Created by Avelina Kim on 10/27/15.
 //  Copyright © 2015 SMC_CPC. All rights reserved.
 //
 
@@ -11,18 +11,22 @@ import GameplayKit
 import SpriteKit
 
 
-class IdleState: GKState {
-    let actor : ActorNode
-    let deccelerationFactor : CGFloat = 0.65
+class AlertedState: GKState {
+    let actor : EnemyNode
+    let alertedIcon : SKSpriteNode
     
-    init(actor: ActorNode){
+    init(actor: EnemyNode){
         self.actor = actor
+        alertedIcon = SKSpriteNode(imageNamed: "alerted-icon")
     }
     
     override func didEnterWithPreviousState(previousState: GKState?) {
         if actor.stateDebug {
             print("Entering \(self.dynamicType)")
         }
+        
+        actor.addChild(alertedIcon)
+        alertedIcon.position.y = CGFloat(50)
         
     }
     
@@ -31,11 +35,13 @@ class IdleState: GKState {
             print("Exiting \(self.dynamicType)")
         }
         
+        alertedIcon.removeFromParent()
     }
     
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
-        //Slows the actor down
-        actor.actorVelocity.dx *= deccelerationFactor
+        if !actor.isFacingTarget() || !actor.isTargetInSight() {
+            self.stateMachine?.enterState(PatrollingState)
+        }
     }
     
 }

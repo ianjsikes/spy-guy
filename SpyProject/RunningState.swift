@@ -24,19 +24,16 @@ class RunningState: GKState {
     
     override func didEnterWithPreviousState(previousState: GKState?) {
         if actor.stateDebug {
-            print("Entering Running State")
+            print("Entering \(self.dynamicType)")
         }
         
         //Plays the running animation when the actor starts to run
-        self.actor.actorSprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(runningAnimation,
-                                                                                        timePerFrame: 0.08,
-                                                                                        resize: false,
-                                                                                        restore: true)))
+        self.actor.actorSprite.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(runningAnimation, timePerFrame: 0.08, resize: false, restore: true)))
     }
     
     override func willExitWithNextState(nextState: GKState) {
         if actor.stateDebug {
-            print("Exiting Running State")
+            print("Exiting \(self.dynamicType)")
         }
         
         //Removes the running animation when the actor stops running
