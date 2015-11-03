@@ -13,17 +13,22 @@ import SpriteKit
 
 class PatrollingState: GKState {
     let actor : EnemyNode
+    var enemyLeft = true
+    var enemyRight = false
+    var enemyPosition:CGFloat = 700
+    var runningEnemyTextures = [SKTexture]()
     
     init(actor: EnemyNode){
         self.actor = actor
     }
+  
     
     override func didEnterWithPreviousState(previousState: GKState?) {
         if actor.stateDebug {
             print("Entering \(self.dynamicType)")
         }
         
-    }
+            }
     
     override func willExitWithNextState(nextState: GKState) {
         if actor.stateDebug {
@@ -31,7 +36,47 @@ class PatrollingState: GKState {
         }
     }
     
+    func updateEnemyPosition() {
+        
+        if enemyLeft == true {
+            
+            actor.xScale = 1
+            
+            self.actor.position.x -= 2
+            
+            if self.actor.position.x < enemyPosition - 50  {
+                
+                self.actor.position.x = enemyPosition - 50
+                
+                enemyLeft = false
+                
+                enemyRight = true
+                
+            }
+        }
+        
+        if enemyRight == true {
+            
+            actor.xScale = -1
+            
+            self.actor.position.x += 2
+            
+            if self.actor.position.x > enemyPosition + 50 {
+                
+                self.actor.position.x = enemyPosition + 50
+                
+                enemyRight = false
+                
+                enemyLeft = true
+            }
+        }
+    }
+
+    
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
+        
+        
+        updateEnemyPosition()
         
         if actor.isFacingTarget() {
             if actor.isTargetInSight() {

@@ -60,7 +60,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                  activeButtonImage: "btn_left_circle_light",
                                  downAction: { () in self.player.setFacingRight(false);
                                                      self.player.actorStateMachine.enterState(RunningState)},
-                                 upAction: { () in player.actorStateMachine.enterState(IdleState)})
+                                 upAction: { () in self.player.actorStateMachine.enterState(IdleState)})
         btnLeft.position = scaledScreenPosition(x: 0.1, y: 0.1)
         
         
@@ -68,7 +68,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                   activeButtonImage: "btn_right_circle_light",
                                   downAction: { () in self.player.setFacingRight(true);
                                                       self.player.actorStateMachine.enterState(RunningState)},
-                                  upAction: { () in player.actorStateMachine.enterState(IdleState)})
+                                  upAction: { () in self.player.actorStateMachine.enterState(IdleState)})
         btnRight.position = scaledScreenPosition(x: 0.25, y: 0.1)
         
         let btnUp = ButtonNode(defaultButtonImage: "btn_up_circle_dark",
@@ -104,10 +104,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //Enemies
         
-        self.addChild(badGuy1)
         badGuy1.position = CGPointMake(700, 900)
+        self.addChild(badGuy1)
+        self.badGuy1.actorStateMachine.enterState(PatrollingState)
         
-    }
+}
     
     func scaledScreenPosition(x x : CGFloat, y : CGFloat) -> CGPoint {
         let scaledX = (x * self.frame.width) - (self.frame.midX)
