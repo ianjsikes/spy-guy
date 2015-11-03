@@ -27,6 +27,18 @@ class EnemyNode: ActorNode {
         self.target = target
     }
     
+    init(target : ActorNode?, position:CGPoint) {
+        super.init()
+        self.position = position
+        actorSprite.texture = spriteSheet.getSprite(3, 2)
+        actorBody.categoryBitMask = BodyType.enemy.rawValue
+        actorBody.contactTestBitMask = BodyType.player.rawValue | BodyType.ground.rawValue
+        
+        aiStateMachine = GKStateMachine(states: [PatrollingState(actor: self), AlertedState(actor: self)])
+        aiStateMachine.enterState(PatrollingState)
+        self.target = target
+    }
+    
     override func updateWithDeltaTime(seconds: NSTimeInterval) {
         super.updateWithDeltaTime(seconds)
         aiStateMachine.updateWithDeltaTime(seconds)

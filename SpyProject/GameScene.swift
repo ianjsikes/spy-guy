@@ -25,7 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var deltaTime : NSTimeInterval = 0.0
     let player = PlayerNode()
     
-    let badGuy1 : EnemyNode = EnemyNode(target: nil)
+    let badGuy1 : EnemyNode = EnemyNode(target: nil, position: CGPointMake(700, 900))
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */

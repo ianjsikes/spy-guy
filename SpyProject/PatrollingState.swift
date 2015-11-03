@@ -15,11 +15,12 @@ class PatrollingState: GKState {
     let actor : EnemyNode
     var enemyLeft = true
     var enemyRight = false
-    var enemyPosition:CGFloat = 700
-    var runningEnemyTextures = [SKTexture]()
+    var enemyPosition:CGFloat = 0
+//    var runningEnemyTextures = [SKTexture]()
     
     init(actor: EnemyNode){
         self.actor = actor
+        enemyPosition = actor.position.x
     }
   
     
@@ -40,7 +41,7 @@ class PatrollingState: GKState {
         
         if enemyLeft == true {
             
-            actor.xScale = 1
+            actor.setFacingRight(false)
             
             self.actor.position.x -= 2
             
@@ -57,7 +58,7 @@ class PatrollingState: GKState {
         
         if enemyRight == true {
             
-            actor.xScale = -1
+            actor.setFacingRight(true)
             
             self.actor.position.x += 2
             
@@ -78,11 +79,11 @@ class PatrollingState: GKState {
         
         updateEnemyPosition()
         
-        if actor.isFacingTarget() {
-            if actor.isTargetInSight() {
-                self.stateMachine?.enterState(AlertedState)
-            }
-        }
+//        if actor.isFacingTarget() {
+//            if actor.isTargetInSight() {
+//                self.stateMachine?.enterState(AlertedState)
+//            }
+//        }
     }
     
 }
